@@ -1,0 +1,29 @@
+<!-- Anything valid on html will be valid on ejs -->
+
+<%# To add external ejs pages for layout and repetition %>
+<%- include("header") -%> 
+    <%# Take our logic from app.js and paste into d h1 %>  
+    <%# Add a marker to tell where to place a variable %> 
+
+    <div class="box" id="heading">
+        <h1><%= listTitle %></h1>
+    </div>
+    
+    <div class="box">    
+        <% for( let i= 0; i < newListItems.length; i++ ) { %>
+        <div class="item">
+            <input type="checkbox">
+            <p>  <%= newListItems[i] %> </p>
+        </div>
+        <% } %>    
+
+        <form class="item" action="/" method="post">
+            <input type="text" name="newItem" placeholder="New Item" autocomplete="off">
+            <button type="submit" name="list" value= <%= listTitle %>  >+</button>
+        </form>
+    </div>
+
+<%- include("footer") -%> 
+    
+    
+    
